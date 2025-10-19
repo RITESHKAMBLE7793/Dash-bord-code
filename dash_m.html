@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teacher Dashboard | Smart Attendance System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+  <!-- 🌐 Navbar -->
+  <nav class="bg-gray-800 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="text-xl font-bold tracking-wide">Smart Attendance</div>
+
+      <!-- Links -->
+      <div class="hidden md:flex space-x-8 text-lg">
+        <a href="dash.html" class="text-indigo-400 font-semibold">Dashboard</a>
+        <a href="pr.html" class="hover:text-gray-300">Profile</a>
+        <a href="QR_m.html" class="hover:text-gray-300">QR Code</a>
+        <a href="login.html" class="hover:text-gray-300">Logout</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="md:hidden text-gray-200 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden bg-gray-700 text-lg">
+      <a href="dash.html" class="block px-6 py-3 bg-gray-600 text-indigo-300 font-semibold">Dashboard</a>
+      <a href="pr.html" class="block px-6 py-3 hover:bg-gray-600">Profile</a>
+      <a href="QR_m.html" class="block px-6 py-3 hover:bg-gray-600">QR Code</a>
+      <a href="login.html" class="block px-6 py-3 hover:bg-gray-600">Logout</a>
+    </div>
+  </nav>
+
+  <!-- 🏫 Dashboard Main Section -->
+  <main class="flex-grow max-w-6xl mx-auto p-6">
+    <!-- Welcome Header -->
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-gray-800">
+        Welcome Back, <span id="teacherName">Teacher</span> 👋
+      </h1>
+      <p class="text-gray-600 mt-2">Manage your classes, view attendance, and generate QR codes easily.</p>
+    </div>
+
+    <!-- Quick Info Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Profile Card -->
+      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition">
+        <div class="flex items-center space-x-4">
+          <div class="bg-indigo-100 text-indigo-600 p-3 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M5.121 17.804A9 9 0 1112 21v-2a7 7 0 00-6.879-6.196z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800">Profile</h3>
+            <p class="text-gray-500 text-sm">View and update your details</p>
+          </div>
+        </div>
+        <a href="pr.html" class="mt-4 inline-block w-full bg-gray-800 text-white py-2 rounded-lg text-center hover:bg-gray-900 transition">Go</a>
+      </div>
+
+      <!-- QR Code Generator -->
+      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition">
+        <div class="flex items-center space-x-4">
+          <div class="bg-green-100 text-green-600 p-3 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 20l-5.447-2.724A2 2 0 013 15.382V6a2 2 0 012-2h5m4 0h5a2 2 0 012 2v9.382a2 2 0 01-.553 1.394L15 20m-6 0v-8h6v8" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800">QR Code</h3>
+            <p class="text-gray-500 text-sm">Generate attendance QR</p>
+          </div>
+        </div>
+        <a href="QR_m.html" class="mt-4 inline-block w-full bg-green-600 text-white py-2 rounded-lg text-center hover:bg-green-700 transition">Generate</a>
+      </div>
+
+      <!-- Attendance Records -->
+      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition">
+        <div class="flex items-center space-x-4">
+          <div class="bg-yellow-100 text-yellow-600 p-3 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 17v-2a2 2 0 012-2h2a2 2 0 012 2v2m4 0V9a2 2 0 00-2-2H7a2 2 0 00-2 2v8m14 0H5" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800">Attendance Records</h3>
+            <p class="text-gray-500 text-sm">View student attendance logs</p>
+          </div>
+        </div>
+        <a href="attendance-records.html" class="mt-4 inline-block w-full bg-yellow-500 text-white py-2 rounded-lg text-center hover:bg-yellow-600 transition">View</a>
+      </div>
+    </div>
+
+    <!-- 📊 Dashboard Stats (optional enhancement) -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
+      <div class="bg-indigo-50 text-indigo-700 p-5 rounded-xl text-center">
+        <h3 class="text-2xl font-bold">5</h3>
+        <p>Classes Today</p>
+      </div>
+      <div class="bg-green-50 text-green-700 p-5 rounded-xl text-center">
+        <h3 class="text-2xl font-bold">120</h3>
+        <p>Students Present</p>
+      </div>
+      <div class="bg-yellow-50 text-yellow-700 p-5 rounded-xl text-center">
+        <h3 class="text-2xl font-bold">98%</h3>
+        <p>Attendance Rate</p>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="mt-10 bg-white rounded-xl shadow-md p-6">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Recent Activity</h2>
+      <ul class="divide-y divide-gray-200">
+        <li class="py-3 flex justify-between text-gray-700">
+          <span>Generated QR for AI - Batch A</span>
+          <span class="text-sm text-gray-500">10:30 AM</span>
+        </li>
+        <li class="py-3 flex justify-between text-gray-700">
+          <span>Marked attendance for DBMS Class</span>
+          <span class="text-sm text-gray-500">Yesterday</span>
+        </li>
+        <li class="py-3 flex justify-between text-gray-700">
+          <span>Updated Profile Information</span>
+          <span class="text-sm text-gray-500">2 days ago</span>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 text-center py-4 text-sm mt-auto">
+    © 2025 Smart Attendance System | Developed by Swarali
+  </footer>
+
+  <!-- JS -->
+  <script>
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Load teacher name dynamically
+    const storedName = localStorage.getItem("teacherName") || "Dr. Sarah Johnson";
+    document.getElementById("teacherName").textContent = storedName;
+  </script>
+
+</body>
+</html>
